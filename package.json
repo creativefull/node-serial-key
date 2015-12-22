@@ -1,0 +1,18 @@
+{
+  "name": "node-serial-key",
+  "version": "0.0.1",
+  "description": "Serial Number for Node Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "Serial",
+    "Number"
+  ],
+  "author": "Shodiqul Muzaki <mshodiqul@gmail.com> (http://creativefull.cf)",
+  "license": "ISC",
+  "dependencies": {
+    "crypto": "0.0.3"
+  }
+}
