@@ -6,11 +6,12 @@ module.exports = {
 	serial : '',
 	getSerial : function(cb) {
 		if (platform == 'linux') {
-			exec('lsblk --nodeps -o name,serial', function(err, stdout) {
-				var output = stdout.split('\n')[1];
-				var hasil = output.split(/\s{2,}/)[1].replace(/\s/gi, '');
-				this.serial = hasil;
-				cb(err, hasil);
+			exec('cat /etc/machine-id', function(err, stdout) {
+				this.serial = stdout.split(/\n/)[0].replace(/\s/gi,'').toString().substr(0,14);
+				if (stdout == '') {
+					this.serial = '00000000000000'
+				}
+				return cb(null, this.serial);
 			});
 		}
 		else if (platform == 'win32') {
